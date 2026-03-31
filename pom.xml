@@ -12,12 +12,12 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>platform/edusubmit-api-gateway</module>
-        <module>platform/edusubmit-config-server</module>
-        <module>platform/edusubmit-discovery-server</module>
-        <module>services/edusubmit-file-service</module>
-        <module>services/edusubmit-student-service</module>
-        <module>services/edusubmit-submission-service</module>
+        <module>edusubmit-api-gateway</module>
+        <module>edusubmit-config-server</module>
+        <module>edusubmit-discovery-server</module>
+        <module>edusubmit-file-service</module>
+        <module>edusubmit-student-service</module>
+        <module>edusubmit-submission-service</module>
     </modules>
 
 </project>

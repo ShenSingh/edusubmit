@@ -10,7 +10,17 @@
         <option value="$PROJECT_DIR$/edusubmit-student-service/pom.xml" />
         <option value="$PROJECT_DIR$/edusubmit-discovery-server/pom.xml" />
         <option value="$PROJECT_DIR$/edusubmit-submission-service/pom.xml" />
+        <option value="$PROJECT_DIR$/platform-seed/edusubmit-api-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/platform-seed/edusubmit-config-server/pom.xml" />
+        <option value="$PROJECT_DIR$/platform-seed/pom.xml" />
+        <option value="$PROJECT_DIR$/platform/edusubmit-discovery-server/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/platform-seed/edusubmit-config-server/pom.xml" />
+        <option value="$PROJECT_DIR$/platform-seed/edusubmit-discovery-server/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_25" project-jdk-name="graalvm-jdk-25" project-jdk-type="JavaSDK">
