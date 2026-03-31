@@ -7,12 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="edusubmit-api-gateway" />
+        <module name="edusubmit-discovery-server" />
         <module name="edusubmit-discovery-server (1)" />
+        <module name="edusubmit-config-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="edusubmit-config-server" target="25" />
-      <module name="edusubmit-discovery-server" target="25" />
       <module name="edusubmit-file-service" target="25" />
       <module name="edusubmit-student-service" target="25" />
       <module name="edusubmit-submission-service" target="25" />

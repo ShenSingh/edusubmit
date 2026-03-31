@@ -16,12 +16,6 @@
         <option value="$PROJECT_DIR$/platform/edusubmit-discovery-server/pom.xml" />
       </list>
     </option>
-    <option name="ignoredFiles">
-      <set>
-        <option value="$PROJECT_DIR$/platform-seed/edusubmit-config-server/pom.xml" />
-        <option value="$PROJECT_DIR$/platform-seed/edusubmit-discovery-server/pom.xml" />
-      </set>
-    </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_25" project-jdk-name="graalvm-jdk-25" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
