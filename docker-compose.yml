@@ -1,0 +1,109 @@
+version: '3.8'
+
+services:
+  # Platform Services (VM 1)
+  config-server:
+    build: ./platform-seed/edusubmit-config-server
+    ports:
+      - "8888:8888"
+    environment:
+      - SPRING_PROFILES_ACTIVE=native
+    networks:
+      - edusubmit-network
+
+  discovery-server:
+    build: ./platform-seed/edusubmit-discovery-server
+    ports:
+      - "8761:8761"
+    depends_on:
+      - config-server
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+    networks:
+      - edusubmit-network
+
+  api-gateway:
+    build: ./platform-seed/edusubmit-api-gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - config-server
+      - discovery-server
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+    networks:
+      - edusubmit-network
+
+  # Service Modules (VM 2)
+  student-service:
+    build: ./service-seed/edusubmit-student-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - config-server
+      - discovery-server
+      - postgres
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+    networks:
+      - edusubmit-network
+
+  submission-service:
+    build: ./service-seed/edusubmit-submission-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - config-server
+      - discovery-server
+      - mongodb
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+    networks:
+      - edusubmit-network
+
+  file-service:
+    build: ./service-seed/edusubmit-file-service
+    ports:
+      - "8083:8083"
+    depends_on:
+      - config-server
+      - discovery-server
+    volumes:
+      - ./uploads:/app/uploads
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+    networks:
+      - edusubmit-network
+
+  # Databases
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: student_db
+      POSTGRES_USER: student_user
+      POSTGRES_PASSWORD: student_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - edusubmit-network
+
+  mongodb:
+    image: mongo:7
+    environment:
+      MONGO_INITDB_DATABASE: edusubmit_submission_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - edusubmit-network
+
+volumes:
+  postgres_data:
+  mongodb_data:
+
+networks:
+  edusubmit-network:
+    driver: bridge
